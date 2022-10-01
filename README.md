@@ -1,6 +1,45 @@
 # JSON Generator
 
-json mock data를 쉽게 만들어주는 라이브러리 입니다
+Let's make json mock data easy!
+
+# Features
+- easy to use
+- generate random(fake) data
+- support korean name/address
+- support custom data generator
+- access to other data in current loop
+
+# Quick Start
+```javascript
+import {
+  autoIncrement,
+  image,
+  num,
+  randomString,
+  money,
+} from "./mock-type.mjs";
+import generate from "./generate.mjs";
+
+const personSchema = {
+  id: autoIncrement(5),
+  name: randomString(),
+  introduce: (current, loopIndex) =>
+    `Hello my name is ${current.name}`,
+  profileImage: image(200, 200),
+  age: num(10, 20),
+  hobby: {
+    id: autoIncrement(),
+    cost: money(1000, 10000, 100),
+    hobbyUser: {
+      userName: (current, loopIndex) => current.name,
+    },
+  },
+  hobbyCost: (current, loopIndex) => current.hobby.cost,
+};
+
+const result = generate(personSchema);
+console.dir(result, { depth: null });
+```
 
 # Maintainers
 
