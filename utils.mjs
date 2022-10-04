@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import { 이름, 성 } from "./names.mjs";
 
 const randomImageApiUrl = "https://picsum.photos";
 
@@ -41,6 +42,21 @@ const isPlainObject = (obj) => {
   return Object.prototype.toString.call(obj) === "[object Object]";
 };
 
+let chosenNameArray = [];
+const randomKoreanName = (gender) => {
+  const 성Index = randomNumberInRange(0, 성.length);
+
+  if (chosenNameArray.length === 0) {
+    chosenNameArray =
+      gender === "male" || gender === "female"
+        ? 이름[gender]
+        : 이름.male.concat(이름.female);
+  }
+  const 이름Index = randomNumberInRange(0, chosenNameArray.length);
+
+  return `${성[성Index]}${chosenNameArray[이름Index].name}`;
+};
+
 export default {
   randomNumberInRange,
   randomString,
@@ -51,4 +67,5 @@ export default {
   money,
   isFunction,
   isPlainObject,
+  randomKoreanName,
 };
