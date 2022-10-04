@@ -7,8 +7,8 @@ const randomNumberInRange = (min, max) => {
 };
 
 const randomString = (min, max) => {
-  const ramdom = randomNumberInRange(min, max);
-  return nanoid(ramdom);
+  const random = randomNumberInRange(min, max);
+  return nanoid(random);
 };
 
 const nextIndex = (currentIndex) => {
