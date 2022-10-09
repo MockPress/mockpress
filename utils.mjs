@@ -47,7 +47,6 @@ const allFirstNames = firstNames.male.concat(firstNames.female);
 const randomKoreanName = (gender) => {
   const lastName = oneOf(lastNames);
   const firstName = oneOf(gender ? firstNames[gender] : allFirstNames).name;
-  console.log(firstName);
 
   return `${lastName}${firstName}`;
 };
