@@ -1,4 +1,4 @@
-export const 성 = [
+export const lastNames = [
   "김",
   "이",
   "박",
@@ -45,7 +45,7 @@ export const 성 = [
   "신",
   "배",
 ];
-export const 이름 = {
+export const firstNames = {
   male: [
     { count: 39408, name: "민준", rank: 1 },
     { count: 37786, name: "서준", rank: 2 },

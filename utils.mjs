@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { 이름, 성 } from "./names.mjs";
+import { firstNames, lastNames } from "./names.mjs";
 
 const randomImageApiUrl = "https://picsum.photos";
 
@@ -42,19 +42,14 @@ const isPlainObject = (obj) => {
   return Object.prototype.toString.call(obj) === "[object Object]";
 };
 
-let chosenNameArray = [];
+const allFirstNames = firstNames.male.concat(firstNames.female);
+
 const randomKoreanName = (gender) => {
-  const 성Index = randomNumberInRange(0, 성.length);
+  const lastName = oneOf(lastNames);
+  const firstName = oneOf(gender ? firstNames[gender] : allFirstNames).name;
+  console.log(firstName);
 
-  if (chosenNameArray.length === 0) {
-    chosenNameArray =
-      gender === "male" || gender === "female"
-        ? 이름[gender]
-        : 이름.male.concat(이름.female);
-  }
-  const 이름Index = randomNumberInRange(0, chosenNameArray.length);
-
-  return `${성[성Index]}${chosenNameArray[이름Index].name}`;
+  return `${lastName}${firstName}`;
 };
 
 export default {
