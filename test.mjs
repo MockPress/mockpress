@@ -4,14 +4,21 @@ import {
   num,
   randomString,
   money,
+  koreanName,
 } from "./mock-type.mjs";
 import generate from "./generate.mjs";
 
 const personSchema = {
   id: autoIncrement(5),
-  name: randomString(),
+  name: koreanName(),
   introduce: (current, loopIndex) =>
     `안녕하세요 제 이름은 ${current.name} 입니다!`,
+  parents: {
+    motherName: koreanName("female"),
+  },
+  parentIntroduce: (current, loopIndex) =>
+    `저희 어머니는 ${current.parents.motherName}입니다!`,
+  userName: randomString(),
   profileImage: image(200, 200),
   age: num(10, 20),
   hobby: {

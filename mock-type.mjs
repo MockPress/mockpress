@@ -29,3 +29,7 @@ export const money =
   (current, loopIndex) => {
     return utils.money(min, max, interval);
   };
+
+export const koreanName = (gender) => (current, loopIndex) => {
+  return utils.randomKoreanName(gender);
+};

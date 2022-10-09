@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import { firstNames, lastNames } from "./names.mjs";
 
 const randomImageApiUrl = "https://picsum.photos";
 
@@ -7,8 +8,8 @@ const randomNumberInRange = (min, max) => {
 };
 
 const randomString = (min, max) => {
-  const ramdom = randomNumberInRange(min, max);
-  return nanoid(ramdom);
+  const random = randomNumberInRange(min, max);
+  return nanoid(random);
 };
 
 const nextIndex = (currentIndex) => {
@@ -41,6 +42,15 @@ const isPlainObject = (obj) => {
   return Object.prototype.toString.call(obj) === "[object Object]";
 };
 
+const allFirstNames = firstNames.male.concat(firstNames.female);
+
+const randomKoreanName = (gender) => {
+  const lastName = oneOf(lastNames);
+  const firstName = oneOf(gender ? firstNames[gender] : allFirstNames).name;
+
+  return `${lastName}${firstName}`;
+};
+
 export default {
   randomNumberInRange,
   randomString,
@@ -51,4 +61,5 @@ export default {
   money,
   isFunction,
   isPlainObject,
+  randomKoreanName,
 };
