@@ -10,10 +10,16 @@ import generate from "./generate.mjs";
 
 const personSchema = {
   id: autoIncrement(5),
-  name: koreanName("male"),
-  userName: randomString(),
+  name: koreanName(),
   introduce: (current, loopIndex) =>
     `안녕하세요 제 이름은 ${current.name} 입니다!`,
+  parents: {
+    fatherName: koreanName("male"),
+    motherName: koreanName("female"),
+  },
+  parentIntroduce: (current, loopIndex) =>
+    `저희 어머니는 ${current.parents.motherName}, 아버지는 ${current.parents.fatherName} 입니다!`,
+  userName: randomString(),
   profileImage: image(200, 200),
   age: num(10, 20),
   hobby: {
