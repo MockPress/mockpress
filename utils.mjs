@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
-import { ADDRESS, ROAD_UNIT, ROAD_NAME_ALPHABET } from "./address.mjs";
-import { firstNames, lastNames } from "./names.mjs";
+import { ADDRESS, ROAD_UNIT, ROAD_NAME_ALPHABET } from "./data/address.mjs";
+import { FIRST_NAMES, LAST_NAMES } from "./data/names.mjs";
 
 const randomImageApiUrl = "https://picsum.photos";
 
@@ -43,11 +43,11 @@ const isPlainObject = (obj) => {
   return Object.prototype.toString.call(obj) === "[object Object]";
 };
 
-const allFirstNames = firstNames.male.concat(firstNames.female);
+const allFirstNames = FIRST_NAMES.male.concat(FIRST_NAMES.female);
 
 const randomKoreanName = (gender) => {
-  const lastName = oneOf(lastNames);
-  const firstName = oneOf(gender ? firstNames[gender] : allFirstNames).name;
+  const lastName = oneOf(LAST_NAMES);
+  const firstName = oneOf(gender ? FIRST_NAMES[gender] : allFirstNames).name;
 
   return `${lastName}${firstName}`;
 };
