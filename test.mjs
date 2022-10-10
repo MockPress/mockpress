@@ -5,6 +5,7 @@ import {
   randomString,
   money,
   koreanName,
+  koreanAddress,
 } from "./mock-type.mjs";
 import generate from "./generate.mjs";
 
@@ -21,6 +22,7 @@ const personSchema = {
   userName: randomString(),
   profileImage: image(200, 200),
   age: num(10, 20),
+  address: koreanAddress(),
   hobby: {
     id: autoIncrement(),
     cost: money(1000, 10000, 100),

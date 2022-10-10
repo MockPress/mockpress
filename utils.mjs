@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import { ADDRESS, ROAD_UNIT, ROAD_NAME_ALPHABET } from "./address.mjs";
 import { firstNames, lastNames } from "./names.mjs";
 
 const randomImageApiUrl = "https://picsum.photos";
@@ -51,6 +52,15 @@ const randomKoreanName = (gender) => {
   return `${lastName}${firstName}`;
 };
 
+const randomKoreanAddress = () => {
+  const province = oneOf(Object.keys(ADDRESS));
+  const sector = oneOf(ADDRESS[province]);
+  const letter = () => oneOf(ROAD_NAME_ALPHABET);
+  const roadName = `${letter()}${letter()}${oneOf(ROAD_UNIT)}`;
+
+  return `${province} ${sector} ${roadName} ${randomNumberInRange(1, 999)}`;
+};
+
 export default {
   randomNumberInRange,
   randomString,
@@ -62,4 +72,5 @@ export default {
   isFunction,
   isPlainObject,
   randomKoreanName,
+  randomKoreanAddress,
 };
