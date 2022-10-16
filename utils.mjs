@@ -52,13 +52,15 @@ const randomKoreanName = (gender) => {
   return `${lastName}${firstName}`;
 };
 
+const ADDRESS_KEYS = Object.keys(ADDRESS);
 const randomKoreanAddress = () => {
-  const province = oneOf(Object.keys(ADDRESS));
+  const province = oneOf(ADDRESS_KEYS);
   const sector = oneOf(ADDRESS[province]);
   const letter = () => oneOf(ROAD_NAME_ALPHABET);
   const roadName = `${letter()}${letter()}${oneOf(ROAD_UNIT)}`;
+  const buildingNumber = randomNumberInRange(1, 999);
 
-  return `${province} ${sector} ${roadName} ${randomNumberInRange(1, 999)}`;
+  return `${province} ${sector} ${roadName} ${buildingNumber}`;
 };
 
 export default {
