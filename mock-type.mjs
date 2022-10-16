@@ -33,3 +33,7 @@ export const money =
 export const koreanName = (gender) => (current, loopIndex) => {
   return utils.randomKoreanName(gender);
 };
+
+export const koreanAddress = () => (current, loopIndex) => {
+  return utils.randomKoreanAddress();
+};
