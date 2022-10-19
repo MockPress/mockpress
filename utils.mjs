@@ -4,6 +4,14 @@ import { FIRST_NAMES, LAST_NAMES } from "./data/names.mjs";
 
 const randomImageApiUrl = "https://picsum.photos";
 
+const isValidDate = (date) => {
+  return (
+    date &&
+    Object.prototype.toString.call(date) === "[object Date]" &&
+    !isNaN(date) // isNaN can check date is invalid date
+  );
+};
+
 const randomNumberInRange = (min, max) => {
   return Math.max(min, Math.floor(Math.random() * (max + 1)));
 };
@@ -63,6 +71,28 @@ const randomKoreanAddress = () => {
   return `${province} ${sector} ${roadName} ${buildingNumber}`;
 };
 
+const randomDateInRange = (startDate, endDate) => {
+  if (!isValidDate(startDate) || !isValidDate(endDate))
+    throw new Error("startDate or endDate is not Date Instance");
+
+  if (startDate.getTime() > endDate.getTime())
+    throw new Error("endDate should be bigger than startDate");
+
+  return new Date(
+    startDate.getTime() +
+      Math.random() * (endDate.getTime() - startDate.getTime())
+  );
+};
+
+const dateToYYYYMMDD = (date, seperator = "-") => {
+  if (!isValidDate(date)) throw new Error("date is not valid");
+
+  const offset = date.getTimezoneOffset();
+  const temp = new Date(date.getTime() - offset * 60 * 1000);
+  const yyyymmdd = temp.toISOString().split("T")[0]; // ISO8601 === YYYY-MM-DDTHH:mm:ss.sssZ
+  return yyyymmdd;
+};
+
 export default {
   randomNumberInRange,
   randomString,
@@ -75,4 +105,7 @@ export default {
   isPlainObject,
   randomKoreanName,
   randomKoreanAddress,
+  randomDateInRange,
+  isValidDate,
+  dateToYYYYMMDD,
 };
