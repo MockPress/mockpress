@@ -1,34 +1,25 @@
-import {
-  autoIncrement,
-  image,
-  num,
-  randomString,
-  money,
-  koreanName,
-  koreanAddress,
-} from "./mock-type.mjs";
-import generate from "./generate.mjs";
+import { mock, generate } from "./index.js";
 
 const personSchema = {
-  id: autoIncrement(5),
-  name: koreanName(),
+  id: mock.autoIncrement(),
+  name: mock.koreanName(),
   introduce: (current, loopIndex) =>
     `안녕하세요 제 이름은 ${current.name} 입니다!`,
   parents: {
-    motherName: koreanName("female"),
+    motherName: mock.koreanName("female"),
   },
   parentIntroduce: (current, loopIndex) =>
     `저희 어머니는 ${current.parents.motherName}입니다!`,
-  userName: randomString(),
-  profileImage: image(200, 200),
-  age: num(10, 20),
-  address: koreanAddress(),
+  userName: mock.text(),
+  profileImage: mock.image(200, 200),
+  age: mock.integer(10, 20),
+  address: mock.koreanAddress(),
   hobby: {
-    id: autoIncrement(),
-    cost: money(1000, 10000, 100),
+    id: mock.autoIncrement(),
+    cost: mock.money(1000, 10000, 100),
     userName: (current, loopIndex) => `${current.name} - ${loopIndex}`,
     secondName: {
-      mySecondName: (current, loopIndex) => current.age + loopIndex,
+      mySecondAge: (current, loopIndex) => current.age + loopIndex,
     },
   },
   hobbyCost: (current, loopIndex) => current.hobby.cost + loopIndex,

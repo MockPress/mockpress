@@ -1,9 +1,10 @@
-import utils from "./utils.mjs";
+import * as util from "./utils/index.js";
 
+// @TODO: 코드를 조금 더 단순하게 작성한다
 const resolve = (schema, loopIndex, getterSchemaObj, currentKey) => {
-  return utils.isFunction(schema[currentKey])
+  return util.isFunction(schema[currentKey])
     ? schema[currentKey](getterSchemaObj, loopIndex)
-    : utils.isPlainObject(schema[currentKey])
+    : util.isPlainObject(schema[currentKey])
     ? generateOnce(schema[currentKey], loopIndex, getterSchemaObj)
     : schema[currentKey];
 };
