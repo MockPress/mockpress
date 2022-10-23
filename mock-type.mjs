@@ -37,3 +37,8 @@ export const koreanName = (gender) => (current, loopIndex) => {
 export const koreanAddress = () => (current, loopIndex) => {
   return utils.randomKoreanAddress();
 };
+
+export const randomDateInRage =
+  (startDate, endDate) => (current, loopIndex) => {
+    return utils.randomDateInRange(startDate, endDate);
+  };
