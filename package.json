@@ -2,11 +2,16 @@
   "name": "json-generator",
   "version": "1.0.0",
   "description": "",
-  "main": "json-generator.js",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "generate": "node test.mjs"
+    "generate": "node ./src/test.js"
   },
-  "keywords": [],
+  "keywords": [
+    "json",
+    "mock",
+    "fake"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

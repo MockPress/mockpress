@@ -1,5 +1,6 @@
-import utils from "./utils.mjs";
+import * as utils from "./utils/index.js";
 
+// @TODO: 코드를 조금 더 단순하게 작성한다
 const resolve = (schema, loopIndex, getterSchemaObj, currentKey) => {
   return utils.isFunction(schema[currentKey])
     ? schema[currentKey](getterSchemaObj, loopIndex)

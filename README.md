@@ -3,6 +3,7 @@
 Let's make json mock data easy!
 
 # Features
+
 - easy to use
 - generate random(fake) data
 - support korean name/address
@@ -10,21 +11,15 @@ Let's make json mock data easy!
 - access to other data in current loop
 
 # Quick Start
+
 ```javascript
-import {
-  autoIncrement,
-  image,
-  num,
-  randomString,
-  money,
-} from "./mock-type.mjs";
+import { autoIncrement, image, num, randomWord, money } from "./mock-type.mjs";
 import generate from "./generate.mjs";
 
 const personSchema = {
   id: autoIncrement(5),
-  name: randomString(),
-  introduce: (current, loopIndex) =>
-    `Hello my name is ${current.name}`,
+  name: randomWord(),
+  introduce: (current, loopIndex) => `Hello my name is ${current.name}`,
   profileImage: image(200, 200),
   age: num(10, 20),
   hobby: {
