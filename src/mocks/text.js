@@ -1,9 +1,9 @@
-import * as utils from "../utils/index.js";
+import * as util from "../utils/index.js";
 
 const text =
   (min = 4, max = 8) =>
   (_, loopIndex) => {
-    return utils.randomWord(min, max);
+    return util.randomWord(min, max);
   };
 
 export default text;

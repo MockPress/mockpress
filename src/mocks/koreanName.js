@@ -1,7 +1,7 @@
-import * as utils from "../utils/index.js";
+import * as util from "../utils/index.js";
 
 const koreanName = (gender) => (_, loopIndex) => {
-  return utils.randomKoreanName(gender);
+  return util.randomKoreanName(gender);
 };
 
 export default koreanName;

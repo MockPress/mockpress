@@ -13,25 +13,25 @@ Let's make json mock data easy!
 # Quick Start
 
 ```javascript
-import { mock, generate } from "./index.js";
+import { mocks, generate } from "./index.js";
 
 const personSchema = {
-  id: mock.autoIncrement(),
-  name: mock.koreanName(),
+  id: mocks.autoIncrement(),
+  name: mocks.koreanName(),
   introduce: (current, loopIndex) =>
     `안녕하세요 제 이름은 ${current.name} 입니다!`,
   parents: {
-    motherName: mock.koreanName("female"),
+    motherName: mocks.koreanName("female"),
   },
   parentIntroduce: (current, loopIndex) =>
     `저희 어머니는 ${current.parents.motherName}입니다!`,
-  userName: mock.text(),
-  profileImage: mock.image(200, 200),
-  age: mock.integer(10, 20),
-  address: mock.koreanAddress(),
+  userName: mocks.text(),
+  profileImage: mocks.image(200, 200),
+  age: mocks.integer(10, 20),
+  address: mocks.koreanAddress(),
   hobby: {
-    id: mock.autoIncrement(),
-    cost: mock.money(1000, 10000, 100),
+    id: mocks.autoIncrement(),
+    cost: mocks.money(1000, 10000, 100),
     userName: (current, loopIndex) => `${current.name} - ${loopIndex}`,
     secret: {
       content: (current, loopIndex) => current.age + loopIndex,

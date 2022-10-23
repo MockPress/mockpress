@@ -1,7 +1,7 @@
-import * as utils from "../utils/index.js";
+import * as util from "../utils/index.js";
 
 const date = (startDate, endDate) => (_, loopIndex) => {
-  return utils.randomDate(startDate, endDate);
+  return util.randomDate(startDate, endDate);
 };
 
 export default date;
