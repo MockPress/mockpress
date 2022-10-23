@@ -40,6 +40,13 @@ function generateOnce(schema, loopIndex, outerGetterSchemaObj) {
   return result;
 }
 
+/**
+ * Generates a array mock data with the given schema, in the length of given count.
+ *
+ * @param { Record<string, (current: Record<string, any>, loopIndex: number) => any> } schema schema of mock data
+ * @param { number } [count] Number of mock data to generate.
+ * @returns { Record<string, any>[] } Created mock data Array.
+ */
 function generate(schema, count = 10) {
   const resultArr = [];
   for (let i = 0; i < count; i += 1) {
