@@ -34,8 +34,8 @@ const num = (min, max) => {
   return randomNumberInRange(min, max);
 };
 
-const image = (width, height) => {
-  return `${randomImageApiUrl}/${width}/${height}`;
+const image = (width, height, index) => {
+  return `${randomImageApiUrl}/${width}/${height}?random=${index}`;
 };
 
 const money = (min, max, interval) => {

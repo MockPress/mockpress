@@ -21,7 +21,7 @@ export const num =
 export const image =
   (width = 300, height = 300) =>
   (current, loopIndex) => {
-    return utils.image(width, height);
+    return utils.image(width, height, loopIndex);
   };
 
 export const money =
