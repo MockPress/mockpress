@@ -5,7 +5,7 @@ const randomDate = (startDate, endDate) => {
     throw new Error("startDate or endDate is not Date Instance");
 
   if (startDate.getTime() > endDate.getTime())
-    throw new Error("endDate should be bigger than startDate");
+    throw new Error("endDate should be later than startDate");
 
   return new Date(
     startDate.getTime() +
