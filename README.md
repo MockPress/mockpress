@@ -13,35 +13,63 @@ Let's make json mock data easy!
 # Quick Start
 
 ```javascript
-import { mocks, generate } from "./index.js";
+import { mock, generate } from "./index.js";
 
 const personSchema = {
-  id: mocks.autoIncrement(),
-  name: mocks.koreanName(),
+  id: mock.autoIncrement(),
+  index: (current, loopIndex) => `${loopIndex + 1} 번째 Object`,
+  name: mock.koreanName(),
   introduce: (current, loopIndex) =>
     `안녕하세요 제 이름은 ${current.name} 입니다!`,
   parents: {
-    motherName: mocks.koreanName("female"),
-  },
-  parentIntroduce: (current, loopIndex) =>
-    `저희 어머니는 ${current.parents.motherName}입니다!`,
-  userName: mocks.text(),
-  profileImage: mocks.image(200, 200),
-  age: mocks.integer(10, 20),
-  address: mocks.koreanAddress(),
-  hobby: {
-    id: mocks.autoIncrement(),
-    cost: mocks.money(1000, 10000, 100),
-    userName: (current, loopIndex) => `${current.name} - ${loopIndex}`,
-    secret: {
-      content: (current, loopIndex) => current.age + loopIndex,
+    mother: {
+      name: mock.koreanName(),
     },
   },
-  other: (current, loopIndex) => current.hobby.cost + loopIndex,
+  parentIntroduce: (current, loopIndex) =>
+    `저희 어머니 성함은 ${current.parents.mother.name} 입니다!`,
+  profileImage: mock.image(200, 200),
+  age: mock.integer(10, 20),
+  address: mock.koreanAddress(),
+  hobby: {
+    id: mock.autoIncrement(),
+    cost: mock.money(1000, 10000, 100),
+  },
 };
 
-const result = generate(personSchema);
+const result = generate(personSchema, 2);
 console.dir(result, { depth: null });
+```
+
+the code above generate this.
+
+```json
+[
+  {
+    "id": 1,
+    "index": "1 번째 Object",
+    "name": "권민규",
+    "introduce": "안녕하세요 제 이름은 권민규 입니다!",
+    "parents": { "mother": { "name": "손선영" } },
+    "parentIntroduce": "저희 어머니 성함은 손선영 입니다!",
+    "profileImage": "https://picsum.photos/200/200?random=0",
+    "age": 17,
+    "address": "한울도 마루군 마카대로 11",
+    "hobby": { "id": 1, "cost": 1000 }
+  },
+  {
+    "id": 2,
+    "index": "2 번째 Object",
+    "name": "신정현",
+    "introduce": "안녕하세요 제 이름은 신정현 입니다!",
+    "parents": { "mother": { "name": "심해인" } },
+    "parentIntroduce": "저희 어머니 성함은 심해인 입니다!",
+    "profileImage": "https://picsum.photos/200/200?random=1",
+    "age": 10,
+    "address": "새나도 단미군 가카로 265",
+    "hobby": { "id": 2, "cost": 7400 }
+  }
+]
 ```
 
 # Maintainers
