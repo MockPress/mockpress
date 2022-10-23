@@ -1,5 +1,12 @@
-// @TODO: seperator를 사용한다
-const dateToYYYYMMDD = (date, seperator = "-") => {
+// @TODO: separator를 사용한다
+/**
+ * Transforms a Date object to string in shape of 'YYYYMMDD'
+ *
+ * @param { Date } date Target Date object.
+ * @param { string } [separator] Separator that separates the year, month, and date. Defaults to '-'. To be Implemented.
+ * @returns { string } A date string in shape of 'YYYYMMDD'.
+ */
+const dateToYYYYMMDD = (date, separator = "-") => {
   if (!isValidDate(date)) throw new Error("date is not valid");
 
   const offset = date.getTimezoneOffset();

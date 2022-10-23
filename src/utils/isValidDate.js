@@ -1,3 +1,9 @@
+/**
+ * Checks if the given input is a date object.
+ *
+ * @param { unknown } date Target to check for.
+ * @returns { date is Date }
+ */
 const isValidDate = (date) => {
   return (
     date &&
