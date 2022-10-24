@@ -23,6 +23,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "commander": "^9.4.1",
+    "inquirer": "^9.1.4",
     "rollup": "^3.2.3"
   },
   "repository": {
