@@ -1,4 +1,4 @@
-# Mockito
+# MockPress
 
 Let's make mock data easy!
 

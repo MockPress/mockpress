@@ -1,6 +1,6 @@
 {
-  "name": "js-mocker",
-  "version": "1.0.7",
+  "name": "mockpress",
+  "version": "1.0.0",
   "description": "let's make mock data easy!",
   "sideEffects": false,
   "type": "module",
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/airman5573/json-generator.git"
+    "url": "https://github.com/airman5573/mockpress.git"
   },
   "dependencies": {
     "nanoid": "^3.3.4"
