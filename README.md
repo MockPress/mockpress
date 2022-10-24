@@ -1,6 +1,6 @@
-# JSON Generator
+# Mockito
 
-Let's make json mock data easy!
+Let's make mock data easy!
 
 # Features
 
