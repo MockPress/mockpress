@@ -3,7 +3,7 @@ export default [
     input: "./src/index.js",
     output: {
       format: "cjs",
-      file: "./dist/commonjs/bundle.js",
+      file: "./dist/commonjs/bundle.cjs",
       sourcemap: true,
     },
   },
