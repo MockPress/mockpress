@@ -1,6 +1,6 @@
 # MockPress
 
-Let's make mock data easy!
+Mock data generator, simple and flexible.
 
 # Features
 
