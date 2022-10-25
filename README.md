@@ -1,6 +1,6 @@
-# JSON Generator
+# MockPress
 
-Let's make json mock data easy!
+Mock data generator, simple and flexible.
 
 # Features
 
@@ -23,7 +23,7 @@ const personSchema = {
     `안녕하세요 제 이름은 ${current.name} 입니다!`,
   parents: {
     mother: {
-      name: mock.koreanName(),
+      name: mock.koreanName("female"),
     },
   },
   parentIntroduce: (current, loopIndex) =>

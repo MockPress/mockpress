@@ -1,11 +1,19 @@
 {
-  "name": "json-generator",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
+  "name": "mockpress",
+  "version": "0.1.0",
+  "description": "Mock data generator, simple and flexible.",
+  "sideEffects": false,
   "type": "module",
+  "exports": {
+    ".": {
+      "require": "./dist/commonjs/bundle.cjs",
+      "import": "./dist/esm/bundle.mjs"
+    }
+  },
+  "main": "./dist/commonjs/bundle.js",
   "scripts": {
-    "generate": "node ./src/test.js"
+    "build": "rm -rf dist && rollup -c rollup.config.js",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "json",
@@ -14,7 +22,14 @@
   ],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "rollup": "^3.2.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airman5573/mockpress.git"
+  },
   "dependencies": {
-    "nanoid": "^4.0.0"
+    "nanoid": "^3.3.4"
   }
 }
