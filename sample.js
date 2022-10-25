@@ -1,4 +1,4 @@
-import { mock, generate } from "./index.js";
+import { mock, generate, writeFile } from "./src/index.js";
 
 const personSchema = {
   id: mock.autoIncrement(),
@@ -23,4 +23,7 @@ const personSchema = {
 };
 
 const result = generate(personSchema, 2);
-console.dir(result, { depth: null });
+
+writeFile("./hoho/export.json", result).then(() => {
+  console.log("Success!!");
+});
