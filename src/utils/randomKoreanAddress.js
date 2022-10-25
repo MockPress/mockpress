@@ -3,6 +3,13 @@ import oneOf from "./oneOf.js";
 import randomNumber from "./randomNumber.js";
 
 const ADDRESS_KEYS = Object.keys(ADDRESS);
+
+/**
+ * Returns a random South Korean address.
+ * Generated address follow the basic rules of the South Korean address system.
+ *
+ * @returns { string } A string in the shape of '{province} {sector} {roadName} {buildingNumber}'.
+ */
 const randomKoreanAddress = () => {
   const province = oneOf(ADDRESS_KEYS);
   const sector = oneOf(ADDRESS[province]);
