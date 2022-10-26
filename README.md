@@ -37,8 +37,9 @@ const personSchema = {
   },
 };
 
-const result = generate(personSchema, 2);
-console.dir(result, { depth: null });
+writeFile("./folder", "export.json", result).then(() => {
+  console.log("Success!!");
+});
 ```
 
 the code above generate this.
