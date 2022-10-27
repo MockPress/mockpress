@@ -12,6 +12,12 @@ Mock data generator, simple and flexible.
 
 # Quick Start
 
+## Install
+```
+npm install -D mockpress
+```
+
+## Example
 ```javascript
 import { mock, generate } from "./index.js";
 
@@ -38,12 +44,17 @@ const personSchema = {
 };
 
 const result = generate(personSchema, 2);
-console.dir(result, { depth: null });
+
+writeFile("./my-folder", "export.json", result).then(() => {
+  console.log("Success!!");
+});
 ```
 
-the code above generate this.
+the code above generate `export.json` file in `./my-filder`
 
 ```json
+// export.json
+
 [
   {
     "id": 1,
