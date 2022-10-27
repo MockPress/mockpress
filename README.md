@@ -13,13 +13,15 @@ Mock data generator, simple and flexible.
 # Quick Start
 
 ## Install
+
 ```
 npm install -D mockpress
 ```
 
 ## Example
+
 ```javascript
-import { mock, generate } from "./index.js";
+import { mock, generate } from "mockpress";
 
 const personSchema = {
   id: mock.autoIncrement(),
