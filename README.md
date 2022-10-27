@@ -1,6 +1,6 @@
-# Mockito
+# MockPress
 
-Let's make mock data easy!
+Mock data generator, simple and flexible.
 
 # Features
 
@@ -12,6 +12,12 @@ Let's make mock data easy!
 
 # Quick Start
 
+## Install
+```
+npm install -D mockpress
+```
+
+## Example
 ```javascript
 import { mock, generate } from "./index.js";
 
@@ -23,7 +29,7 @@ const personSchema = {
     `안녕하세요 제 이름은 ${current.name} 입니다!`,
   parents: {
     mother: {
-      name: mock.koreanName(),
+      name: mock.koreanName("female"),
     },
   },
   parentIntroduce: (current, loopIndex) =>
@@ -37,14 +43,16 @@ const personSchema = {
   },
 };
 
-writeFile("./folder", "export.json", result).then(() => {
+writeFile("./my-folder", "export.json", result).then(() => {
   console.log("Success!!");
 });
 ```
 
-the code above generate this.
+the code above generate `export.json` file in `./my-filder`
 
 ```json
+// export.json
+
 [
   {
     "id": 1,

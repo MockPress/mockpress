@@ -1,7 +1,7 @@
 {
-  "name": "js-mocker",
-  "version": "1.0.7",
-  "description": "let's make mock data easy!",
+  "name": "mockpress",
+  "version": "0.1.0",
+  "description": "Mock data generator, simple and flexible.",
   "sideEffects": false,
   "type": "module",
   "exports": {
