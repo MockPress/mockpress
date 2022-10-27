@@ -43,8 +43,6 @@ const personSchema = {
   },
 };
 
-const result = generate(personSchema, 2);
-
 writeFile("./my-folder", "export.json", result).then(() => {
   console.log("Success!!");
 });
