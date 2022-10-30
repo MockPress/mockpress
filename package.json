@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Mock data generator, simple and flexible.",
   "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": {
       "require": "./dist/commonjs/bundle.cjs",
@@ -24,7 +25,9 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.19.6",
+    "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
+    "@babel/runtime": "^7.20.0",
     "@rollup/plugin-babel": "^6.0.2",
     "babel-jest": "^29.2.2",
     "jest": "^29.2.2",

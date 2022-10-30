@@ -1,22 +1,25 @@
-import { babel } from "@rollup/plugin-babel";
+import path from "path";
+import { getBabelOutputPlugin } from "@rollup/plugin-babel";
 
 export default [
   {
     input: "./src/index.js",
-    output: {
-      format: "cjs",
-      file: "./dist/commonjs/bundle.cjs",
-      sourcemap: true,
-    },
-    plugins: [babel({ babelHelpers: "bundled" })],
-  },
-  {
-    input: "./src/index.js",
-    output: {
-      format: "es",
-      file: "./dist/esm/bundle.mjs",
-      sourcemap: true,
-    },
-    plugins: [babel({ babelHelpers: "bundled" })],
+    plugins: [
+      getBabelOutputPlugin({
+        presets: ["@babel/preset-env"],
+      }),
+    ],
+    external: ["nanoid"],
+    output: [
+      {
+        dir: "./dist/esm",
+        format: "es",
+        preserveModules: true,
+      },
+      {
+        file: "./dist/cjs/bundle.cjs",
+        format: "cjs",
+      },
+    ],
   },
 ];
