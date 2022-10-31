@@ -13,7 +13,8 @@
   "main": "./dist/cjs/bundle.cjs",
   "scripts": {
     "build": "rm -rf dist && rollup -c rollup.config.js",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "test": "jest"
   },
   "keywords": [
     "json",
@@ -23,8 +24,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
-    "@rollup/plugin-babel": "^6.0.2",
+    "babel-jest": "^29.2.2",
+    "jest": "^29.2.2",
     "rollup": "^3.2.3"
   },
   "repository": {
