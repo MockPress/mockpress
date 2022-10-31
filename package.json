@@ -1,6 +1,6 @@
 {
   "name": "mockpress",
-  "version": "0.1.2",
+  "version": "0.1.9",
   "description": "Mock data generator, simple and flexible.",
   "sideEffects": false,
   "type": "module",
@@ -13,8 +13,9 @@
   "main": "./dist/cjs/bundle.cjs",
   "scripts": {
     "build": "rm -rf dist && rollup -c rollup.config.js",
-    "prepublish": "npm run build",
-    "test": "jest"
+    "prepublishOnly": "npm run build && npm run type",
+    "test": "jest",
+    "type": "tsc"
   },
   "keywords": [
     "json",
@@ -29,7 +30,8 @@
     "@rollup/plugin-babel": "^6.0.2",
     "babel-jest": "^29.2.2",
     "jest": "^29.2.2",
-    "rollup": "^3.2.3"
+    "rollup": "^3.2.3",
+    "typescript": "^4.8.4"
   },
   "repository": {
     "type": "git",
