@@ -1,7 +1,7 @@
 import dateToYYYYMMDD from "../../utils/dateToYYYYMMDD";
 
 describe("dateToYYYYMMDD", () => {
-  it("should return yyyy-mm-dd formated string", () => {
+  it("should return yyyy-mm-dd formatted string", () => {
     const now = new Date();
     const yyyymmdd = dateToYYYYMMDD(now);
     const yyyymmddArr = yyyymmdd.split("-");
