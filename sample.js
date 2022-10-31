@@ -1,4 +1,4 @@
-import { mock, generate, writeFile } from "./src/index.js";
+import { mock, generate } from "./src/index.js";
 
 const personSchema = {
   id: mock.autoIncrement(),
