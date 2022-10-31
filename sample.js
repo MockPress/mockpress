@@ -23,7 +23,4 @@ const personSchema = {
 };
 
 const result = generate(personSchema, 2);
-
-writeFile("./hoho", "export.json", result).then(() => {
-  console.log("Success!!");
-});
+console.dir(result, { depth: null });
