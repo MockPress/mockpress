@@ -1,16 +1,16 @@
 {
   "name": "mockpress",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Mock data generator, simple and flexible.",
   "sideEffects": false,
   "type": "module",
   "exports": {
     ".": {
-      "require": "./dist/commonjs/bundle.cjs",
-      "import": "./dist/esm/bundle.mjs"
+      "require": "./dist/cjs/bundle.cjs",
+      "import": "./dist/esm/index.js"
     }
   },
-  "main": "./dist/commonjs/bundle.js",
+  "main": "./dist/cjs/bundle.cjs",
   "scripts": {
     "build": "rm -rf dist && rollup -c rollup.config.js",
     "prepublish": "npm run build"
@@ -23,6 +23,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.19.4",
+    "@rollup/plugin-babel": "^6.0.2",
     "rollup": "^3.2.3"
   },
   "repository": {
