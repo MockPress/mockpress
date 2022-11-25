@@ -1,47 +1,74 @@
 ---
+slug: /
+title: Quick Start
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Quick Start
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## Install
 
-## Getting Started
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```
+npm install mockpress
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+You can use this with CJS or ESM
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## Example
 
-## Start your site
+```javascript
+import { mock, generate } from "mockpress";
 
-Run the development server:
+const personSchema = {
+  id: mock.autoIncrement(),
+  index: (current, loopIndex) => `${loopIndex + 1} 번째 Object`,
+  name: mock.koreanName(),
+  introduce: (current, loopIndex) =>
+    `안녕하세요 제 이름은 ${current.name} 입니다!`,
+  parents: {
+    mother: {
+      name: mock.koreanName("female"),
+    },
+  },
+  parentIntroduce: (current, loopIndex) =>
+    `저희 어머니 성함은 ${current.parents.mother.name} 입니다!`,
+  profileImage: mock.image(200, 200),
+  age: mock.integer(10, 20),
+  address: mock.koreanAddress(),
+  hobby: {
+    id: mock.autoIncrement(),
+    cost: mock.money(1000, 10000, 100),
+  },
+};
 
-```bash
-cd my-website
-npm run start
+const result = generate(personSchema, 2);
+console.dir(result, { depth: null });
+/*
+[
+  {
+    id: 1,
+    index: "1 번째 Object",
+    name: "주동준",
+    introduce: "안녕하세요 제 이름은 주동준 입니다!",
+    parents: { mother: { name: "문다윤" } },
+    parentIntroduce: "저희 어머니 성함은 문다윤 입니다!",
+    profileImage: "https://picsum.photos/200/200?random=0",
+    age: 18,
+    address: "은가람시 동구 바하대로 991",
+    hobby: { id: 1, cost: 1000 },
+  },
+  {
+    id: 2,
+    index: "2 번째 Object",
+    name: "양가빈",
+    introduce: "안녕하세요 제 이름은 양가빈 입니다!",
+    parents: { mother: { name: "지송현" } },
+    parentIntroduce: "저희 어머니 성함은 지송현 입니다!",
+    profileImage: "https://picsum.photos/200/200?random=1",
+    age: 14,
+    address: "은가람시 남구 가나로 126",
+    hobby: { id: 2, cost: 6700 },
+  },
+];
+*/
 ```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
