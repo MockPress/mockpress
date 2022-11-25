@@ -2,6 +2,8 @@
 
 Mock data generator, simple and flexible.
 
+[Documentation](https://gleeful-cendol-4eaacd.netlify.app/)
+
 # Features
 
 - easy to use
