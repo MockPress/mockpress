@@ -1,19 +1,17 @@
-import { nanoid } from "nanoid";
-import randomNumber from "./randomNumber.js";
+// reference: https://developer-ankiwoong.tistory.com/256
 
-// @TODO: Word라고 하니 nanoId보다는 조금 더 의미를 가진 단어였으면 한다. 사랑, 친구 등등
+import randomNumber from "./randomNumber.js";
+import words from "../data/words";
+
+// @TODO: 영어도 지원한다. locale을 받으면 될듯?
 /**
- * Returns a text of a length in the given range.
- * Utilizes the nanoid library for creating a string.
- * https://www.npmjs.com/package/nanoid
+ * Returns a random korean word
  *
- * @param { number } min Minimum length of word.
- * @param { number } max Maximum length of word.
  * @returns { string } Generated word of a random length in the given range.
  */
-const randomWord = (min, max) => {
-  const random = randomNumber(min, max);
-  return nanoid(random);
+const randomWord = () => {
+  const index = randomNumber(0, words.length - 1);
+  return words[index];
 };
 
 export default randomWord;
