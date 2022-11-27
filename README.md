@@ -29,8 +29,7 @@ const personSchema = {
   id: mock.autoIncrement(),
   index: (current, loopIndex) => `${loopIndex + 1} 번째 Object`,
   name: mock.koreanName(),
-  introduce: (current, loopIndex) =>
-    `안녕하세요 제 이름은 ${current.name} 입니다!`,
+  introduce: mock.koreanSentence(),
   parents: {
     mother: {
       name: mock.koreanName("female"),
@@ -43,6 +42,7 @@ const personSchema = {
   address: mock.koreanAddress(),
   hobby: {
     id: mock.autoIncrement(),
+    name: mock.koreanWord(),
     cost: mock.money(1000, 10000, 100),
   },
 };
@@ -56,26 +56,27 @@ console.dir(result, { depth: null });
   {
     id: 1,
     index: "1 번째 Object",
-    name: "주동준",
-    introduce: "안녕하세요 제 이름은 주동준 입니다!",
-    parents: { mother: { name: "문다윤" } },
-    parentIntroduce: "저희 어머니 성함은 문다윤 입니다!",
+    name: "손소윤",
+    introduce: "국가는 모성의 보호를 위하여 노력하여야 한다.",
+    parents: { mother: { name: "허린아" } },
+    parentIntroduce: "저희 어머니 성함은 허린아 입니다!",
     profileImage: "https://picsum.photos/200/200?random=0",
-    age: 18,
-    address: "은가람시 동구 바하대로 991",
-    hobby: { id: 1, cost: 1000 },
+    age: 10,
+    address: "나래도 미르시 파라대로 269",
+    hobby: { id: 1, name: "권한", cost: 9600 },
   },
   {
     id: 2,
     index: "2 번째 Object",
-    name: "양가빈",
-    introduce: "안녕하세요 제 이름은 양가빈 입니다!",
-    parents: { mother: { name: "지송현" } },
-    parentIntroduce: "저희 어머니 성함은 지송현 입니다!",
+    name: "임지석",
+    introduce:
+      "민주평화통일자문회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.",
+    parents: { mother: { name: "허하빈" } },
+    parentIntroduce: "저희 어머니 성함은 허하빈 입니다!",
     profileImage: "https://picsum.photos/200/200?random=1",
-    age: 14,
-    address: "은가람시 남구 가나로 126",
-    hobby: { id: 2, cost: 6700 },
+    age: 15,
+    address: "아리시 동구 나차로 744",
+    hobby: { id: 2, name: "대법원", cost: 1000 },
   },
 ];
 ```

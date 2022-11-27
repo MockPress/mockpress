@@ -1,11 +1,10 @@
-import { mock, generate } from "./index.js";
+import { mock, generate } from "./index";
 
 const personSchema = {
   id: mock.autoIncrement(),
   index: (current, loopIndex) => `${loopIndex + 1} 번째 Object`,
   name: mock.koreanName(),
-  introduce: (current, loopIndex) =>
-    `안녕하세요 제 이름은 ${current.name} 입니다!`,
+  introduce: mock.koreanSentence(),
   parents: {
     mother: {
       name: mock.koreanName("female"),
@@ -18,6 +17,7 @@ const personSchema = {
   address: mock.koreanAddress(),
   hobby: {
     id: mock.autoIncrement(),
+    name: mock.koreanWord(),
     cost: mock.money(1000, 10000, 100),
   },
 };
