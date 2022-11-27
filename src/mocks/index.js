@@ -5,4 +5,5 @@ export { default as integer } from "./integer.js";
 export { default as koreanAddress } from "./koreanAddress.js";
 export { default as koreanName } from "./koreanName.js";
 export { default as money } from "./money.js";
-export { default as text } from "./text.js";
+export { default as koreanWord } from "./koreanWord";
+export { default as koreanSentence } from "./koreanSentence";

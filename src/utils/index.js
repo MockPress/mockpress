@@ -10,4 +10,4 @@ export { default as randomKoreanName } from "./randomKoreanName";
 export { default as randomMoney } from "./randomMoney";
 export { default as randomNumber } from "./randomNumber";
 export { default as randomKoreanWord } from "./randomKoreanWord";
-export { default as randomSentenceWord } from "./randomKoreanSentence";
+export { default as randomKoreanSentence } from "./randomKoreanSentence";
