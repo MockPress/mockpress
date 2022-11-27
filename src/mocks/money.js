@@ -1,4 +1,4 @@
-import * as util from "../utils/index.js";
+import * as util from "../utils/index";
 
 /**
  * Generates a random amount of money in the given range.

@@ -1,4 +1,4 @@
-import * as util from "../utils/index.js";
+import * as util from "../utils/index";
 
 /**
  * Generates a random Image of the given size.
