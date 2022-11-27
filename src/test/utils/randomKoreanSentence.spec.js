@@ -1,10 +1,10 @@
-import randomSentence from "../../utils/randomSentence";
+import randomKoreanSentence from "../../utils/randomKoreanSentence";
 
 describe("random sentence", () => {
   it("should return true when all of the length of sentences are different", () => {
-    const short = randomSentence("short");
-    const medium = randomSentence("medium");
-    const long = randomSentence("long");
+    const short = randomKoreanSentence("short");
+    const medium = randomKoreanSentence("medium");
+    const long = randomKoreanSentence("long");
     expect(
       short.length < medium.length && medium.length < long.length
     ).toBeTruthy();

@@ -9,9 +9,9 @@ import words from "../data/words";
  *
  * @returns { string } Generated word of a random length in the given range.
  */
-const randomWord = () => {
+const randomKoreanWord = () => {
   const index = randomNumber(0, words.length - 1);
   return words[index];
 };
 
-export default randomWord;
+export default randomKoreanWord;
