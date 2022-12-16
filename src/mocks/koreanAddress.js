@@ -1,4 +1,4 @@
-import * as util from "../utils/index";
+import * as util from "../utils";
 
 // @TODO: location을 받아서 여러 나라를 지원하자
 /**

@@ -1,4 +1,4 @@
-import * as util from "../utils/index";
+import * as util from "../utils";
 
 /**
  * Generates a random integer in the given range.

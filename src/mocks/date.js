@@ -1,4 +1,4 @@
-import * as util from "../utils/index";
+import * as util from "../utils";
 
 //@TODO: 더 쉬운 날짜 범위 지정 방식이 필요할듯 싶다
 
