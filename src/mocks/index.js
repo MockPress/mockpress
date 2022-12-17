@@ -1,9 +1,9 @@
-export { default as autoIncrement } from "./autoIncrement.js";
-export { default as date } from "./date.js";
-export { default as image } from "./image.js";
-export { default as integer } from "./integer.js";
-export { default as koreanAddress } from "./koreanAddress.js";
-export { default as koreanName } from "./koreanName.js";
-export { default as money } from "./money.js";
+export { default as autoIncrement } from "./autoIncrement";
+export { default as date } from "./date";
+export { default as image } from "./image";
+export { default as integer } from "./integer";
+export { default as koreanAddress } from "./koreanAddress";
+export { default as koreanName } from "./koreanName";
+export { default as money } from "./money";
 export { default as koreanWord } from "./koreanWord";
 export { default as koreanSentence } from "./koreanSentence";

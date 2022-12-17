@@ -1,3 +1,4 @@
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import { getBabelOutputPlugin } from "@rollup/plugin-babel";
 
 export default [
@@ -7,16 +8,16 @@ export default [
       getBabelOutputPlugin({
         presets: ["@babel/preset-env"],
       }),
+      nodeResolve(),
     ],
     external: ["nanoid"],
     output: [
       {
-        dir: "./dist/esm",
+        file: "./dist/index.esm.mjs",
         format: "es",
-        preserveModules: true,
       },
       {
-        file: "./dist/cjs/bundle.cjs",
+        file: "./dist/index.cjs.js",
         format: "cjs",
       },
     ],
