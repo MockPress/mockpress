@@ -6,7 +6,7 @@ import * as util from "../utils";
  *
  * @param { number } [width] Width of the generated image in px. Defaults to 300.
  * @param { number } [height] Height of the generated image in px. Defaults to 300.
- * @returns { string } Url of the random image.
+ * @returns { function(any, number): string } Url of the random image.
  */
 const image =
   (width = 300, height = 300) =>

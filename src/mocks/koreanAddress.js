@@ -6,7 +6,7 @@ import * as util from "../utils";
  * Generated address follow the basic rules of the South Korean address system.
  * However, generated addresses are fake and do not exist in the real world.
  *
- * @returns { string } A random virtual korean address.
+ * @returns { function(any, number): string } A random virtual korean address.
  */
 const koreanAddress = () => (_, loopIndex) => {
   return util.randomKoreanAddress();
