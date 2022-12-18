@@ -34,9 +34,11 @@ function schemaToGetterObj(schema, loopIndex, getterObj, globalGetterObj) {
           if (cache !== cachePlaceholder) {
             return cache;
           }
-          if (cache === null && isCalled) {
+          if (cache === cachePlaceholder && isCalled) {
             throw new Error(`${key}에 순환 참조가 있습니다`);
           }
+
+          isCalled = true;
           cache = val(globalGetterObj, loopIndex);
           return cache;
         },
