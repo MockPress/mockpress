@@ -19,6 +19,9 @@ const personSchema = {
     id: mock.autoIncrement(),
     name: mock.koreanWord(),
     cost: mock.money(1000, 10000, 100),
+    introduce: (current, loopIndex) => {
+      return `This hobby's cost is ${current.hobby.cost}`;
+    },
   },
 };
 

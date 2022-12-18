@@ -1,43 +1,52 @@
 import * as util from "./utils";
 
-// @TODO: 코드를 조금 더 단순하게 작성한다
-const resolve = (schema, loopIndex, getterSchemaObj, currentKey) => {
-  return util.isFunction(schema[currentKey])
-    ? schema[currentKey](getterSchemaObj, loopIndex)
-    : util.isPlainObject(schema[currentKey])
-    ? generateOnce(schema[currentKey], loopIndex, getterSchemaObj)
-    : schema[currentKey];
-};
+const cachePlaceholder = Symbol("cachePlaceholder");
 
-function generateOnce(schema, loopIndex, outerGetterSchemaObj) {
-  const result = {};
+function generateOnce(schema, loopIndex, result, getterObj) {
   const keys = Object.keys(schema);
-  const callHistory = {};
-  const getterSchemaObj =
-    outerGetterSchemaObj ??
-    keys.reduce((acc, cur) => {
-      Object.defineProperty(acc, cur, {
-        get: () => {
-          if (result[cur]) {
-            return result[cur];
-          }
-          if (callHistory[cur]) {
-            throw new Error(`${cur}에 순환 참조가 있습니다`);
-          }
-          callHistory[cur] = true;
-          result[cur] = resolve(schema, loopIndex, getterSchemaObj, cur);
-          return result;
-        },
-      });
-      return acc;
-    }, {});
-
   for (let i = 0; i < keys.length; i += 1) {
     const key = keys[i];
-    result[key] = resolve(schema, loopIndex, getterSchemaObj, key);
+    const val = schema[key];
+    if (util.isPlainObject(val)) {
+      result[key] = generateOnce(val, loopIndex, {}, getterObj[key]);
+    } else {
+      result[key] = getterObj[key];
+    }
   }
-
   return result;
+}
+
+function schemaToGetterObj(schema, loopIndex, getterObj, globalGetterObj) {
+  const keys = Object.keys(schema);
+  for (let i = 0; i < keys.length; i += 1) {
+    const key = keys[i];
+    const val = schema[key];
+    if (util.isPlainObject(val)) {
+      const newGetterObj = {};
+      getterObj[key] = newGetterObj;
+      schemaToGetterObj(val, loopIndex, newGetterObj, globalGetterObj);
+    } else if (util.isFunction(val)) {
+      let cache = cachePlaceholder;
+      let isCalled = false;
+
+      Object.defineProperty(getterObj, key, {
+        get: () => {
+          if (cache !== cachePlaceholder) {
+            return cache;
+          }
+          if (cache === cachePlaceholder && isCalled) {
+            throw new Error(`${key}에 순환 참조가 있습니다`);
+          }
+
+          isCalled = true;
+          cache = val(globalGetterObj, loopIndex);
+          return cache;
+        },
+      });
+    } else {
+      getterObj[key] = val;
+    }
+  }
 }
 
 /**
@@ -50,7 +59,10 @@ function generateOnce(schema, loopIndex, outerGetterSchemaObj) {
 function generate(schema, count = 10) {
   const resultArr = [];
   for (let i = 0; i < count; i += 1) {
-    const result = generateOnce(schema, i);
+    const getterObj = {};
+    schemaToGetterObj(schema, i, getterObj, getterObj);
+
+    const result = generateOnce(schema, i, {}, getterObj);
     resultArr.push(result);
   }
   return resultArr;
