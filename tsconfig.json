@@ -1,21 +1,36 @@
 {
-  "include": ["src/**/*"],
-  "exclude": ["src/test/*", "src/data/*"],
   "compilerOptions": {
-    // Tells TypeScript to read JS files, as
-    // normally they are ignored as source files
-    "allowJs": true,
-    // Generate d.ts files
-    "declaration": true,
-    // This compiler run should
-    // only output d.ts files
+    /* Modules */
+    "baseUrl": ".",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+
+    /* Type Checking */
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+
+    /* Language and Environment */
+    "lib": ["esnext"],
+    "target": "es6",
+
+    /* Interop Constraints */
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Emit */
     "emitDeclarationOnly": true,
-    // Types should go into this directory.
-    // Removing this would place the .d.ts files
-    // next to the .js files
-    "outDir": "dist",
-    // go to js file when using IDE functions like
-    // "Go to Definition" in VSCode
-    "declarationMap": true
-  }
+    "declaration": true,
+    "declarationDir": "dist",
+
+    /* Completeness*/
+    "allowJs": false,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/test/*", "src/data/*", "**/dist/*"]
 }

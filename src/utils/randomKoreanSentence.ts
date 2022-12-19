@@ -12,10 +12,10 @@ const sizeTable = {
 // @TODO: 영어도 지원한다. locale을 받으면 될듯?
 /**
  * Returns a random korean sentence
- * @param { 'short' | 'medium' | 'long' } Size of generated sentence.
- * @returns { string } Generated sentence of a given size.
+ * @param Size Size of generated sentence. Default is "short"
+ * @returns Generated sentence of a given size.
  */
-const randomKoreanSentence = (size = "short") => {
+const randomKoreanSentence = (size: "short" | "medium" | "long" = "short") => {
   const sentenceCount = sizeTable[size];
   if (!sentenceCount) {
     throw new Error("size should be one of short, medium, long");

@@ -1,13 +1,13 @@
 import isValidDate from "./isValidDate";
-// @TODO: separator를 사용한다
+// @TODO: separator를 사용하거나 제거한다
 /**
  * Transforms a Date object to string in shape of 'YYYYMMDD'
  *
- * @param { Date } date Target Date object.
- * @param { string } [separator] Separator that separates the year, month, and date. Defaults to '-'. To be Implemented.
- * @returns { string } A date string in shape of 'YYYYMMDD'.
+ * @param date Target Date object.
+ * @param separator Separator that separates the year, month, and date. Defaults to '-'. To be Implemented.
+ * @returns A date string in shape of 'YYYYMMDD'.
  */
-const dateToYYYYMMDD = (date, separator = "-") => {
+const dateToYYYYMMDD = (date: Date) => {
   if (!isValidDate(date)) throw new Error("date is not valid");
 
   const offset = date.getTimezoneOffset();

@@ -2,7 +2,15 @@ import * as util from "./utils";
 
 const cachePlaceholder = Symbol("cachePlaceholder");
 
-function generateOnce(schema, loopIndex, result, getterObj) {
+type SchemaType = Record<string, any>;
+type GetterObjType = Record<string, any>;
+type ResultType = Record<string, any>;
+const generateOnce = (
+  schema: SchemaType,
+  loopIndex: number,
+  result: ResultType,
+  getterObj: GetterObjType
+): ResultType => {
   const keys = Object.keys(schema);
   for (let i = 0; i < keys.length; i += 1) {
     const key = keys[i];
@@ -14,9 +22,14 @@ function generateOnce(schema, loopIndex, result, getterObj) {
     }
   }
   return result;
-}
+};
 
-function schemaToGetterObj(schema, loopIndex, getterObj, globalGetterObj) {
+const schemaToGetterObj = (
+  schema: SchemaType,
+  loopIndex: number,
+  getterObj: GetterObjType,
+  globalGetterObj: GetterObjType
+) => {
   const keys = Object.keys(schema);
   for (let i = 0; i < keys.length; i += 1) {
     const key = keys[i];
@@ -47,16 +60,16 @@ function schemaToGetterObj(schema, loopIndex, getterObj, globalGetterObj) {
       getterObj[key] = val;
     }
   }
-}
+};
 
 /**
  * Generates a array mock data with the given schema, in the length of given count.
  *
- * @param { Record<string, (current: Record<string, any>, loopIndex: number) => any> } schema schema of mock data
- * @param { number } [count] Number of mock data to generate.
- * @returns { Record<string, any>[] } Created mock data Array.
+ * @param schema schema of mock data
+ * @param count Number of mock data to generate.
+ * @returns Created mock data Array.
  */
-function generate(schema, count = 10) {
+const generate = (schema: SchemaType, count = 10): ResultType[] => {
   const resultArr = [];
   for (let i = 0; i < count; i += 1) {
     const getterObj = {};
@@ -66,6 +79,6 @@ function generate(schema, count = 10) {
     resultArr.push(result);
   }
   return resultArr;
-}
+};
 
 export default generate;

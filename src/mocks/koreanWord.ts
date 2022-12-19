@@ -1,3 +1,4 @@
+import { LoopFn } from "src/custom-type";
 import * as util from "../utils";
 
 /**
@@ -5,8 +6,10 @@ import * as util from "../utils";
  *
  * @returns { function(any, number): string } Random word
  */
-const koreanWord = () => (_, loopIndex) => {
+const koreanWord: KoreanWordType = () => () => {
   return util.randomKoreanWord();
 };
+
+type KoreanWordType = () => LoopFn<string>;
 
 export default koreanWord;

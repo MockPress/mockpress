@@ -1,3 +1,4 @@
+import { LoopFn } from "src/custom-type";
 import * as util from "../utils";
 
 /**
@@ -8,10 +9,12 @@ import * as util from "../utils";
  * @param { number } [interval] Refers to the minimum unit of money. Defaults to 1000.
  * @returns { function(any, number): number } Random amount of money.
  */
-const money =
+const money: MoneyType =
   (min = 100, max = 10000, interval = 1000) =>
-  (_, loopIndex) => {
+  () => {
     return util.randomMoney(min, max, interval);
   };
+
+type MoneyType = (min: number, max: number, interval: number) => LoopFn<number>; // @TODO: comma가 찍힌 string으로 바꾸자
 
 export default money;

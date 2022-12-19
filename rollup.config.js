@@ -1,14 +1,21 @@
 import { nodeResolve } from "@rollup/plugin-node-resolve";
-import { getBabelOutputPlugin } from "@rollup/plugin-babel";
+import babel from "@rollup/plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
+
+const extensions = [".ts"];
 
 export default [
   {
-    input: "./src/index.js",
+    input: "./src/index.ts",
     plugins: [
-      getBabelOutputPlugin({
-        presets: ["@babel/preset-env"],
+      nodeResolve({
+        extensions,
       }),
-      nodeResolve(),
+      commonjs(),
+      babel({
+        extensions,
+        babelHelpers: "bundled",
+      }),
     ],
     external: ["nanoid"],
     output: [

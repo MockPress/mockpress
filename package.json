@@ -1,6 +1,6 @@
 {
   "name": "mockpress",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Mock data generator, simple and flexible.",
   "sideEffects": false,
   "files": [
@@ -19,10 +19,9 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.mjs",
   "scripts": {
-    "build": "rm -rf dist && rollup -c rollup.config.js",
-    "prepublishOnly": "npm run build && npm run type",
-    "test": "jest",
-    "type": "tsc"
+    "build": "rm -rf dist && tsc && rollup -c rollup.config.js",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
   },
   "keywords": [
     "json",
@@ -34,12 +33,21 @@
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
+    "@babel/preset-typescript": "^7.18.6",
     "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/jest": "^29.2.4",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
     "babel-jest": "^29.2.2",
+    "eslint": "^8.30.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
     "jest": "^29.2.2",
     "rollup": "^3.2.3",
-    "typescript": "^4.8.4"
+    "typescript": "^4.9.4"
   },
   "repository": {
     "type": "git",

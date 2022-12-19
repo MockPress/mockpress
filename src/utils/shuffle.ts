@@ -5,10 +5,11 @@ import randomNumber from "./randomNumber";
 /**
  * Return n unique ramdom elements from the list.
  *
- * @param { T[] } arr Options array.
- * @returns { T[] } Shuffled array.
+ * @param arr Options array.
+ * @returns Shuffled array.
  */
-function shuffle(array) {
+function shuffle<T>(_array: readonly T[]): T[] {
+  const array = [..._array];
   let counter = array.length;
 
   while (counter--) {
