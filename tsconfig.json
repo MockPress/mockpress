@@ -14,7 +14,7 @@
     "strict": true,
 
     /* Language and Environment */
-    "lib": ["dom", "dom.iterable", "ESNext", "ESNext.AsyncIterable"],
+    "lib": ["esnext"],
     "target": "es6",
 
     /* Interop Constraints */
@@ -23,8 +23,9 @@
     "forceConsistentCasingInFileNames": true,
 
     /* Emit */
-    "noEmit": true,
+    "emitDeclarationOnly": true,
     "declaration": true,
+    "declarationDir": "dist",
 
     /* Completeness*/
     "allowJs": false,
