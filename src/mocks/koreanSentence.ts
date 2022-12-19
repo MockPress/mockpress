@@ -1,12 +1,17 @@
+import { LoopFn } from "src/custom-type";
 import * as util from "../utils";
 
 /**
  * Generate a random korean sentence
- * @param { undefined | 'short' | 'medium' | 'long' } Size of generated sentence.
- * @returns { function(any, number): string } Generated sentence of a given size.
+ * @param Size of generated sentence.
+ * @returns LoopFunction of returning generated sentence of a given size.
  */
-const koreanSentence = (size) => (_, loopIndex) => {
+const koreanSentence: KoreanSentenceType = (size) => () => {
   return util.randomKoreanSentence(size);
 };
+
+type KoreanSentenceType = (
+  size?: "short" | "medium" | "long"
+) => LoopFn<string>;
 
 export default koreanSentence;

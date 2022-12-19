@@ -25,7 +25,7 @@ const sample = <T>(arr: readonly T[], n: number): T[] => {
 
   // 배열에서 n개를 랜덤하게 뽑아 리턴합니다
   // 하지만 엄밀히는 배열을 섞고 slice(n)하는것입니다
-  const shuffledArray = shuffle(arr, n); // 불변성을 유지하지 않습니다. 배열이 큰경우 비용이 너무 많이 들어갑니다
+  const shuffledArray = shuffle(arr); // 불변성을 유지하지 않습니다. 배열이 큰경우 비용이 너무 많이 들어갑니다
   return shuffledArray.slice(0, n); // n = 0도 허용합니다
 };
 

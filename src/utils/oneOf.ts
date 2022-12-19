@@ -1,4 +1,4 @@
-import randomNumber from "./randomNumber.js";
+import randomNumber from "./randomNumber";
 
 // @TODO: 배열인지 검사한다.
 // @MEMO: 라이브러리를 만들때는 아무리 ts라고 해도,
@@ -6,10 +6,10 @@ import randomNumber from "./randomNumber.js";
 /**
  * Picks one of the element from Array randomly.
  *
- * @param { T[] } arr Options array.
- * @returns { T } Picked Element.
+ * @param arr Options array.
+ * @returns Picked Element.
  */
-const oneOf = (arr) => {
+const oneOf = <T>(arr: readonly T[]): T => {
   const randomIndex = randomNumber(0, arr.length - 1);
   return arr[randomIndex];
 };

@@ -1,8 +1,10 @@
-import { ADDRESS, ROAD_UNIT, ROAD_NAME_ALPHABET } from "../data/address.js";
-import oneOf from "./oneOf.js";
-import randomNumber from "./randomNumber.js";
+import { ADDRESS, ROAD_UNIT, ROAD_NAME_ALPHABET } from "../data/address";
+import oneOf from "./oneOf";
+import randomNumber from "./randomNumber";
 
-const ADDRESS_KEYS = Object.keys(ADDRESS);
+const ADDRESS_KEYS = Object.keys(ADDRESS) as unknown as Array<
+  keyof typeof ADDRESS
+>;
 
 /**
  * Returns a random South Korean address.

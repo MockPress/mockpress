@@ -1,11 +1,11 @@
 /**
  * Checks if the given input is null or undefined.
  *
- * @param { unknown } input Target to check for.
- * @returns { obj is null | undefined }
+ * @param val Target to check for.
+ * @returns Boolean value to determine whether val is a null or undefined.
  */
-const isNullOrUndefined = (input) => {
-  return input == null;
+const isNullOrUndefined = (val: unknown): val is null | undefined => {
+  return val == null;
 };
 
 export default isNullOrUndefined;

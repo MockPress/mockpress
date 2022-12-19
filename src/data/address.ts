@@ -9,7 +9,7 @@ export const ADDRESS = {
   소담도: ["하람시", "헤윰시", "초아군", "지음군"],
   한울도: ["윤슬시", "에움시", "마루군"],
   새나도: ["모들시", "단미군", "나린군"],
-};
+} as const;
 
 export const ROAD_NAME_ALPHABET = [
   "가",

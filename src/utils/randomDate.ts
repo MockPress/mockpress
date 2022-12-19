@@ -1,13 +1,13 @@
-import isValidDate from "./isValidDate.js";
+import isValidDate from "./isValidDate";
 
 /**
  * Returns a random date in the range of given parameters.
  *
- * @param { Date } startDate Returned date would be after the given date.
- * @param { Date } endDate Returned date would be before the given date.
- * @returns { Date } Random date.
+ * @param startDate Returned date would be after the given date.
+ * @param endDate Returned date would be before the given date.
+ * @returns Random date.
  */
-const randomDate = (startDate, endDate) => {
+const randomDate = (startDate: Date, endDate: Date) => {
   if (!isValidDate(startDate) || !isValidDate(endDate))
     throw new Error("startDate or endDate is not Date Instance");
 

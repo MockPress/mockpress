@@ -1,10 +1,10 @@
 /**
  * Checks if the given input is an object.
  *
- * @param { unknown } obj Target to check for.
- * @returns { obj is Object }
+ * @param obj Target to check for.
+ * @returns Boolean value to determine whether val is a plain object.
  */
-const isPlainObject = (obj) => {
+const isPlainObject = (obj: unknown): obj is Record<any, any> => {
   return Object.prototype.toString.call(obj) === "[object Object]";
 };
 
