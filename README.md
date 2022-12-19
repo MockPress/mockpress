@@ -2,7 +2,7 @@
 
 Mock data generator, simple and flexible.
 
-[Documentation](https://gleeful-cendol-4eaacd.netlify.app/)
+[Test On Browser](https://mockpress.site)
 
 # Features
 
