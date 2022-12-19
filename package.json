@@ -19,10 +19,9 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.mjs",
   "scripts": {
-    "build": "rm -rf dist && rollup -c rollup.config.js",
-    "prepublishOnly": "npm run build && npm run type",
-    "test": "jest",
-    "type": "tsc"
+    "build": "rm -rf dist && tsc && rollup -c rollup.config.js",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
   },
   "keywords": [
     "json",
@@ -34,7 +33,9 @@
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
+    "@babel/preset-typescript": "^7.18.6",
     "@rollup/plugin-babel": "^6.0.2",
+    "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
