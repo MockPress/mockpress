@@ -7,7 +7,7 @@ import isValidDate from "./isValidDate";
  * @param separator Separator that separates the year, month, and date. Defaults to '-'. To be Implemented.
  * @returns A date string in shape of 'YYYYMMDD'.
  */
-const dateToYYYYMMDD = (date: Date, separator = "-") => {
+const dateToYYYYMMDD = (date: Date) => {
   if (!isValidDate(date)) throw new Error("date is not valid");
 
   const offset = date.getTimezoneOffset();
