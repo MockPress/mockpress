@@ -6,7 +6,8 @@ describe("randomKoreanAddress", () => {
     const address = randomKoreanAddress();
 
     const ADDRESS_KEYS = Object.keys(ADDRESS);
-    const [province, sector, roadName, buildingNumber] = address.split(" ");
+    const [province, sector, roadName, _buildingNumber] = address.split(" ");
+    const buildingNumber = Number(_buildingNumber);
 
     expect(
       ADDRESS_KEYS.includes(province) &&

@@ -1,6 +1,6 @@
 {
   "name": "mockpress",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Mock data generator, simple and flexible.",
   "sideEffects": false,
   "files": [
@@ -37,6 +37,7 @@
     "@rollup/plugin-babel": "^6.0.2",
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@types/jest": "^29.2.4",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "babel-jest": "^29.2.2",
