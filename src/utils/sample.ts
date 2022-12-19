@@ -7,15 +7,15 @@ import shuffle from "./shuffle";
 /**
  * Return n unique ramdom elements from the list.
  *
- * @param { T[] } arr Options array.
+ * @param arr Options array.
  * @param { number } n Item count.
  * @returns { T[] | T } Sample.
  */
-const sample = (arr, n) => {
+const sample = <T>(arr: readonly T[], n: number): T[] => {
   // n이 지정되어 있지 않다면 배열원소중 1개를 리턴합니다
   if (isNullOrUndefined(n)) {
     const randomIndex = randomNumber(0, arr.length - 1);
-    return arr[randomIndex];
+    return [arr[randomIndex]];
   }
 
   // n이 arr보다 더 길다면 에러를 throw합니다
