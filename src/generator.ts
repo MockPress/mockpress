@@ -64,9 +64,10 @@ const schemaToGetterObj = (
 
 /**
  * Generates a array mock data with the given schema, in the length of given count.
+ * @public
  *
- * @param schema schema of mock data
- * @param count Number of mock data to generate.
+ * @param schema - schema of mock data
+ * @param count - Number of mock data to generate.
  * @returns Created mock data Array.
  */
 const generate = (schema: SchemaType, count = 10): ResultType[] => {

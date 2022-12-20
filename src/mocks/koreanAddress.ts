@@ -6,6 +6,7 @@ import * as util from "../utils";
  * Generates a random South Korean address.
  * Generated address follow the basic rules of the South Korean address system.
  * However, generated addresses are fake and do not exist in the real world.
+ * @public
  *
  * @returns LoopFunction of returning a random virtual korean address.
  */

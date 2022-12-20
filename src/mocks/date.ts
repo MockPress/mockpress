@@ -5,9 +5,10 @@ import * as util from "../utils";
 
 /**
  * Generates a random date in the range of the given parameters.
+ * @public
  *
- * @param startDate Generated date would be after the given date.
- * @param endDate Generated date would be before the given date.
+ * @param startDate - Generated date would be after the given date.
+ * @param endDate - Generated date would be before the given date.
  * @returns LoopFunction of returning generated Date object.
  */
 const date: DateType = (startDate, endDate) => () => {

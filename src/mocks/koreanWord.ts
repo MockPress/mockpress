@@ -3,8 +3,9 @@ import * as util from "../utils";
 
 /**
  * Generates a random korean word
+ * @public
  *
- * @returns { function(any, number): string } Random word
+ * @returns LoopFunction returning random word
  */
 const koreanWord: KoreanWordType = () => () => {
   return util.randomKoreanWord();

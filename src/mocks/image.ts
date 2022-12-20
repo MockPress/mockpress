@@ -4,9 +4,10 @@ import * as util from "../utils";
 /**
  * Generates a random Image of the given size.
  * Utilizes the images created by https://picsum.photos/ .
+ * @public
  *
- * @param width Width of the generated image in px. Defaults to 300.
- * @param height Height of the generated image in px. Defaults to 300.
+ * @param width - Width of the generated image in px. Defaults to 300.
+ * @param height - Height of the generated image in px. Defaults to 300.
  * @returns LoopFunction of returning url of the random image.
  */
 const image: ImageType =

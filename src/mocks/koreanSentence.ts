@@ -3,7 +3,9 @@ import * as util from "../utils";
 
 /**
  * Generate a random korean sentence
- * @param Size of generated sentence.
+ * @public
+ *
+ * @param Size - of generated sentence.
  * @returns LoopFunction of returning generated sentence of a given size.
  */
 const koreanSentence: KoreanSentenceType = (size) => () => {

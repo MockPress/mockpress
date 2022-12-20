@@ -5,8 +5,9 @@ import randomNumber from "./randomNumber";
 // 사용자가 typescript를 안쓸 수도 있기 때문에, 타입 검사를 직접 해줘야 한다
 /**
  * Picks one of the element from Array randomly.
+ * @public
  *
- * @param arr Options array.
+ * @param arr - Options array.
  * @returns Picked Element.
  */
 const oneOf = <T>(arr: readonly T[]): T => {
