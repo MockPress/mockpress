@@ -1,4 +1,5 @@
 export { default as autoIncrement } from "./autoIncrement";
+export { default as boolean } from "./boolean";
 export { default as date } from "./date";
 export { default as image } from "./image";
 export { default as integer } from "./integer";
