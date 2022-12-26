@@ -1,3 +1,4 @@
+export { default as randomAge } from "./randomAge";
 export { default as randomBoolean } from "./randomBoolean";
 export { default as dateToYYYYMMDD } from "./dateToYYYYMMDD";
 export { default as isFunction } from "./isFunction";
