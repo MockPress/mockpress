@@ -1,4 +1,4 @@
-import { util } from "src";
+import * as util from "../utils";
 
 /**
  * Generates a random boolean value.

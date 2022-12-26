@@ -1,4 +1,4 @@
-import randomNumber from "src/utils/randomNumber";
+import randomNumber from "./randomNumber";
 
 /**
  * Returns a random boolean.
