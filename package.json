@@ -22,7 +22,8 @@
   "scripts": {
     "build": "rm -rf dist && tsc && rollup -c rollup.config.js",
     "prepublishOnly": "npm run build",
-    "test": "jest"
+    "test": "jest",
+    "tsdoc-api-extractor": "npm run build && api-extractor run --local --diagnostics"
   },
   "keywords": [
     "json",
