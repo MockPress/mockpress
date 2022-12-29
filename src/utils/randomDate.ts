@@ -2,9 +2,10 @@ import isValidDate from "./isValidDate";
 
 /**
  * Returns a random date in the range of given parameters.
+ * @public
  *
- * @param startDate Returned date would be after the given date.
- * @param endDate Returned date would be before the given date.
+ * @param startDate - Returned date would be after the given date.
+ * @param endDate - Returned date would be before the given date.
  * @returns Random date.
  */
 const randomDate = (startDate: Date, endDate: Date) => {

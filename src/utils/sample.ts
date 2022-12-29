@@ -6,10 +6,11 @@ import shuffle from "./shuffle";
 
 /**
  * Return n unique ramdom elements from the list.
+ * @public
  *
- * @param arr Options array.
- * @param { number } n Item count.
- * @returns { T[] | T } Sample.
+ * @param arr - Options array.
+ * @param n - Item count.
+ * @returns Sample.
  */
 const sample = <T>(arr: readonly T[], n: number): T[] => {
   // n이 지정되어 있지 않다면 배열원소중 1개를 리턴합니다

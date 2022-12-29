@@ -6,6 +6,7 @@ import words from "../data/words";
 // @TODO: 영어도 지원한다. locale을 받으면 될듯?
 /**
  * Returns a random korean word
+ * @public
  *
  * @returns Generated word of a random length in the given range.
  */

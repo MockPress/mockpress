@@ -4,8 +4,9 @@ import randomNumber from "./randomNumber";
 
 /**
  * Return n unique ramdom elements from the list.
+ * @public
  *
- * @param arr Options array.
+ * @param arr - Options array.
  * @returns Shuffled array.
  */
 function shuffle<T>(_array: readonly T[]): T[] {

@@ -2,9 +2,10 @@ import isValidDate from "./isValidDate";
 // @TODO: separator를 사용하거나 제거한다
 /**
  * Transforms a Date object to string in shape of 'YYYYMMDD'
+ * @public
  *
- * @param date Target Date object.
- * @param separator Separator that separates the year, month, and date. Defaults to '-'. To be Implemented.
+ * @param date - Target Date object.
+ * @param separator - Separator that separates the year, month, and date. Defaults to '-'. To be Implemented.
  * @returns A date string in shape of 'YYYYMMDD'.
  */
 const dateToYYYYMMDD = (date: Date) => {

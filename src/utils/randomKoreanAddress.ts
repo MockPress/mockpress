@@ -9,8 +9,9 @@ const ADDRESS_KEYS = Object.keys(ADDRESS) as unknown as Array<
 /**
  * Returns a random South Korean address.
  * Generated address follow the basic rules of the South Korean address system.
+ * @public
  *
- * @returns { string } A string in the shape of '{province} {sector} {roadName} {buildingNumber}'.
+ * @returns A string in the shape of '[province] [sector] [roadName] [buildingNumber]'.
  */
 const randomKoreanAddress = () => {
   const province = oneOf(ADDRESS_KEYS);

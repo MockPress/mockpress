@@ -1,7 +1,8 @@
 /**
  * Checks if the given input is an object.
+ * @public
  *
- * @param obj Target to check for.
+ * @param obj - Target to check for.
  * @returns Boolean value to determine whether val is a plain object.
  */
 const isPlainObject = (obj: unknown): obj is Record<any, any> => {

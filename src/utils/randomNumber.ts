@@ -1,8 +1,9 @@
 /**
  * Returns a random integer in the given range.
+ * @public
  *
- * @param min Minimum number.
- * @param max Maximum number.
+ * @param min - Minimum number.
+ * @param max - Maximum number.
  * @returns A random integer in the given range.
  */
 const randomNumber = (min: number, max: number) => {
