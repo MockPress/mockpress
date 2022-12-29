@@ -64,11 +64,35 @@ const schemaToGetterObj = (
 
 /**
  * Generates a array mock data with the given schema, in the length of given count.
- * @public
+ *
+ * @remarks
+ * ```
+ * function generate(schema: SchemaType): ResultType[]
+ * ```
+ *
+ * @example
+ * ```
+ * generate({
+ *  id: mock.autoIncrement(),
+ *  introduce: mock.koreanSentence("short"),
+ *  name: mock.koreanName(),
+ *  hello: (current, loopIndex) => { // custom function is allowed
+      return `Hello my name is ${current.name}`;
+ *  },
+ *  hobby: {
+ *    cost: mock.money(1000, 5000, 500),
+ *    name: mock.koreanWord(),
+ *    introduce: (current, loopIndex) => { // current can access anywhere
+ *      return `Hobby of ${current.name} is ${current.hobby.name}. And cost is ${current.hobby.cost}`
+ *    }
+ *  }
+ * }, 10);
+ * ```
  *
  * @param schema - schema of mock data
  * @param count - Number of mock data to generate.
  * @returns Created mock data Array.
+ * @public
  */
 const generate = (schema: SchemaType, count = 10): ResultType[] => {
   const resultArr = [];
