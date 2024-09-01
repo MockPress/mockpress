@@ -4,10 +4,22 @@ import * as util from "../utils";
 /**
  * Generates a random amount of money in the given range.
  *
- * @param { number } [min] Minimum amount of money. Defaults to 100.
- * @param { number } [max] Maximum amount of money. Defaults to 10000.
- * @param { number } [interval] Refers to the minimum unit of money. Defaults to 1000.
- * @returns { function(any, number): number } Random amount of money.
+ * @remarks
+ * ```
+ * function money(min?: number, max?: number, interval?: number): LoopFn<number>
+ * ```
+ *
+ * @example
+ * ```
+ * { cost: mock.money(1000, 5000, 1000) }
+ * // 3000
+ * ```
+ *
+ * @param min - Minimum amount of money. Defaults to 100.
+ * @param max - Maximum amount of money. Defaults to 10000.
+ * @param interval - Refers to the minimum unit of money. Defaults to 1000.
+ * @returns LoopFunction of returning random amount of money.
+ * @public
  */
 const money: MoneyType =
   (min = 100, max = 10000, interval = 1000) =>
@@ -15,6 +27,10 @@ const money: MoneyType =
     return util.randomMoney(min, max, interval);
   };
 
-type MoneyType = (min: number, max: number, interval: number) => LoopFn<number>; // @TODO: comma가 찍힌 string으로 바꾸자
+type MoneyType = (
+  min?: number,
+  max?: number,
+  interval?: number
+) => LoopFn<number>; // @TODO: comma가 찍힌 string으로 바꾸자
 
 export default money;

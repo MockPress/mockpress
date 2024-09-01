@@ -1,7 +1,8 @@
 /**
  * Checks if the given input is a date object.
+ * @public
  *
- * @param val Target to check for.
+ * @param val - Target to check for.
  * @returns Boolean value to determine whether val is a Date
  */
 const isValidDate = (val: unknown): val is Date => {

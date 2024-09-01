@@ -8,6 +8,7 @@
   ],
   "type": "module",
   "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -21,7 +22,8 @@
   "scripts": {
     "build": "rm -rf dist && tsc && rollup -c rollup.config.js",
     "prepublishOnly": "npm run build",
-    "test": "jest"
+    "test": "jest",
+    "tsdoc-api-extractor": "npm run build && api-extractor run --local --diagnostics"
   },
   "keywords": [
     "json",
@@ -47,7 +49,7 @@
     "eslint-plugin-tsdoc": "^0.2.17",
     "jest": "^29.2.2",
     "rollup": "^3.2.3",
-    "typescript": "^4.9.4"
+    "typescript": "^4.8.4"
   },
   "repository": {
     "type": "git",
